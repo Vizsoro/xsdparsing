@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+	<!ELEMENT book (author, title)>
+	<!ELEMENT audiobook (author, title)>
+	<!ELEMENT author (#PCDATA)>
+	<!ELEMENT title (#PCDATA)>
+	]
+>
+<library>
+<book>
+<author type="short"> E.A. Poe</author>
+<title> Pit and Pendulum</title>
+</book>
+<book>
+<author> N. Gaman</author>
+<title> American Gods</title>
+</book>
+
+<book>
+<author>R. Kipling</author>
+<title>The Jungle Book</title>
+</book>
+
+<audiobook>
+<author> Suzanne Collins</author>
+<title> The Hunger Games</title>
+</audiobook>
+
+<audiobook>
+<author> Stephen King</author>
+<title> Carrie</title>
+</audiobook>
+
+
+<newspaper>
+<title> The New York Times</title>
+<year>2008</year>
+</newspaper>
+</library>

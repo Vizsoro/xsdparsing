@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book [
+	<!ELEMENT book (author, title)>
+	<!ELEMENT audiobook (author, title)>
+	<!ELEMENT author (#PCDATA)>
+	<!ELEMENT title (#PCDATA)>
+	]
+>
+	
+<library>
+<book>
+<author> E.A. Poe</author>
+<title> Short Stories</title>
+</book>
+<book>
+<author> Byron</author>
+<title> Poems</title>
+</book>
+
+<audiobook>
+<author> Suzanne Collins</author>
+<title> The Hunger Games</title>
+</audiobook>
+
+<audiobook>
+<author> Stephen King</author>
+<title> The Shining</title>
+</audiobook>
+
+<audiobook>
+<author> J.R. R. Tolkien</author>
+<title> The Lord of The Rings</title>
+</audiobook>
+
+
+<newspaper>
+<title> The New York Times</title>
+<year>2010</year>
+</newspaper>
+</library>
