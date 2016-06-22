@@ -1,3 +1,4 @@
+package vzsolt.xsdparse;
 
 public interface Record {
 	

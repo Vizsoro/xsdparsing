@@ -1,3 +1,4 @@
+package vzsolt.xsdparse;
 import java.util.Set;
 
 public interface DocumentParser {

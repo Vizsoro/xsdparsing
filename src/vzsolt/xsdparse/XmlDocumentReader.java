@@ -1,3 +1,4 @@
+package vzsolt.xsdparse;
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
@@ -12,16 +13,18 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-public class XmlDocumentReader extends DocumentReader {
+public class XmlDocumentReader implements DocumentReader {
+private Path path;
+private List<Document> documents;
 
 
   public XmlDocumentReader(Path p) {
-    super(p);
+    path = p;
     documents = new ArrayList<Document>();
   }
 
   @Override
-  void findDocuments() {
+  public void findDocuments() {
     try (DirectoryStream<Path> stream = Files.newDirectoryStream(this.path, "*.xml")) {
       DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
       for (Path filePath : stream) {
@@ -47,7 +50,7 @@ public class XmlDocumentReader extends DocumentReader {
   }
 
   @Override
-  List<Document> getDocuments() {
+  public List<Document> getDocuments() {
     return documents;
   }
 

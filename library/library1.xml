@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE book [
-	<!ELEMENT book (author, title)>
-	<!ELEMENT audiobook (author, title)>
-	<!ELEMENT author (#PCDATA)>
-	<!ELEMENT title (#PCDATA)>
-	]
->
+
 <library>
 <book>
 <author type="short"> E.A. Poe</author>
