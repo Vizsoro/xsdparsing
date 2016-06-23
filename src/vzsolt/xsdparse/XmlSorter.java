@@ -41,7 +41,7 @@ public class XmlSorter {
 		// Parsing the documents and creating two sets of Records (books and
 		// audiobooks)
 		
-		DocumentParser documentParser = new XmlDocumentParser(sourceReader.getDocuments());
+		/* DocumentParser documentParser = new XmlDocumentParser(sourceReader.getDocuments());
 		documentParser.parseDocuments();
 		xmlSorter.books = documentParser.getBooks();
 		xmlSorter.audioBooks = documentParser.getAudioBooks();
@@ -51,5 +51,6 @@ public class XmlSorter {
 		for (Record audioBook : xmlSorter.audioBooks) {
 			System.out.println("Audiobook: " + audioBook.toString());
 		}
+		*/
 	}
 }
