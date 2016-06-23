@@ -34,7 +34,7 @@ public class LibraryRecord implements Record {
 		return title;
 	}
 
-	@Override
+	
 	public boolean equals(Record r) {
 		if (author.replaceAll("\\s","").equalsIgnoreCase(r.getAuthor().replaceAll("\\s",""))){
 			if(title.replaceAll("\\s","").equalsIgnoreCase(r.getTitle().replaceAll("\\s",""))){

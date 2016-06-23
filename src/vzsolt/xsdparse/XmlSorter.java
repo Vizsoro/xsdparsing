@@ -5,13 +5,13 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.xml.sax.SAXException;
+
 public class XmlSorter {
 
-	private DocumentReader docReader;
-	private Path path;
+	private Path xmlPath;
 	private Set<Record> books;
 	private Set<Record> audioBooks;
-
 	public XmlSorter() {
 		books = new HashSet<Record>();
 		audioBooks = new HashSet<Record>();
@@ -20,15 +20,29 @@ public class XmlSorter {
 	public static void main(String[] args) {
 		XmlSorter xmlSorter = new XmlSorter();
 		String filePath = new File("").getAbsolutePath();
+		String schemaPath = new File("").getAbsolutePath();
 		filePath = filePath.concat("\\library");
-		xmlSorter.path = Paths.get(filePath);
-		xmlSorter.docReader = new XmlDocumentReader(xmlSorter.path);
-		// Find all the xml documents at the given path
-		xmlSorter.docReader.findDocuments();
+		schemaPath = schemaPath.concat("\\library\\librarySchema2.xsd");		
+		xmlSorter.xmlPath = Paths.get(filePath);		
+	
+		
+		SchemaValidator validator = new LibraryValidator();
+		try {
+		    validator.setSchema(schemaPath);
+		    validator.validate(xmlSorter.xmlPath);
+		    
+		} catch (SAXException e) {
+         e.printStackTrace();
+		}
+		SourceReaderInterface sourceReader = new SourceReader();
+		sourceReader.setSource(validator.getCorrectSource());
+		sourceReader.createDocuments();
+
 		// Parsing the documents and creating two sets of Records (books and
 		// audiobooks)
-		DocumentParser documentParser = new XmlDocumentParser(xmlSorter.docReader.getDocuments());
-		// Get the sets
+		
+		DocumentParser documentParser = new XmlDocumentParser(sourceReader.getDocuments());
+		documentParser.parseDocuments();
 		xmlSorter.books = documentParser.getBooks();
 		xmlSorter.audioBooks = documentParser.getAudioBooks();
 		for (Record book : xmlSorter.books) {
@@ -37,7 +51,5 @@ public class XmlSorter {
 		for (Record audioBook : xmlSorter.audioBooks) {
 			System.out.println("Audiobook: " + audioBook.toString());
 		}
-
 	}
-
 }
